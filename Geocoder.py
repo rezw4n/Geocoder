@@ -31,7 +31,7 @@ file = st.file_uploader('Upload a csv file:', type='csv')
 if file:
     df = pd.read_csv(file)
     st.write(df)
-    address = st.selectbox("Select a column you'd like to geocode",
+    address = st.selectbox("Select address column of your file:",
                            options=["<select>", *df.columns])
     start = st.button('Start Geocoding')
 
