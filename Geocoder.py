@@ -21,11 +21,27 @@ if file:
     st.write(df)
     address = st.selectbox("Select a column you'd like to geocode",
                            options=["<select>", *df.columns])
+    start = st.button('Start Geocoding')
 
-    if address != "<select>":
+    if address != "<select>" and start:
         stqdm.pandas()
         df['Latitude and Longitude'] = df[address].progress_apply(lambda x: geocode(x))
         df['latitude'] = df['Latitude and Longitude'].apply(lambda x: x[0])
         df['longitude'] = df['Latitude and Longitude'].apply(lambda x: x[1])
         df.drop('Latitude and Longitude', axis=1, inplace=True)
         st.write(df)
+
+
+        @st.cache
+        def convert_df(data_frame):
+            return data_frame.to_csv().encode('utf-8')
+
+
+        csv = convert_df(df)
+        st.download_button(
+            "Download Geocoded CSV",
+            csv,
+            "Geocoded.csv",
+            "text/csv",
+            key='download-csv'
+        )
