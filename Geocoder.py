@@ -4,6 +4,18 @@ import streamlit as st
 from stqdm import stqdm
 
 
+st.set_page_config(page_title="Geocoder", page_icon="🌍",)
+
+css_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+
+st.markdown(css_style, unsafe_allow_html=True)
+
+
 def geocode(address, country='', city=''):
     api = f"https://nominatim.openstreetmap.org/search.php?q={address}&country={country}&city={city}&format=jsonv2"
     try:
