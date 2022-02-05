@@ -6,8 +6,11 @@ from stqdm import stqdm
 
 def geocode(address, country='', city=''):
     api = f"https://nominatim.openstreetmap.org/search.php?q={address}&country={country}&city={city}&format=jsonv2"
-    response = requests.get(api).json()[0]
-    return [float(response['lat']), float(response['lon'])]
+    try:
+        response = requests.get(api).json()[0]
+        return [float(response['lat']), float(response['lon'])]
+    except IndexError:
+        return [0, 0]
 
 
 st.title('Geocoder')
