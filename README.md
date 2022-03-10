@@ -4,3 +4,14 @@ The app is deployed [here](https://share.streamlit.io/rezw4n/geocoder/Geocoder.p
 ![Geocoder](https://raw.githubusercontent.com/rezw4n/Geocoder/master/Animation.gif "Geocoder")
 
 To use it, upload a csv file(size < 200mb) and select the address column of your csv file and start geocoding!
+
+## Setup Locally  
+Due to heavy user load by users, the server may through a timeout error. So it is suggested to use the app locally on your own desktop.  
+- Clone this repository or just download as zip.  
+``git clone https://github.com/rezw4n/Geocoder.git```  
+- Open the cloned directory.  
+```cd Geocoder```  
+- Install all the required python packages via pip.  
+```pip install -r requirements.txt```  
+- Fire up the app.  
+```streamlit run Geocoder.py```
