@@ -8,7 +8,7 @@ To use it, upload a csv file(size < 200mb) and select the address column of your
 ## Setup Locally  
 Due to heavy user load by users, the server may through a timeout error. So it is suggested to use the app locally on your own desktop.  
 - Clone this repository or just download as zip.  
-``git clone https://github.com/rezw4n/Geocoder.git```  
+```git clone https://github.com/rezw4n/Geocoder.git```  
 - Open the cloned directory.  
 ```cd Geocoder```  
 - Install all the required python packages via pip.  
